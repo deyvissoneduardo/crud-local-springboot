@@ -1,13 +1,13 @@
 package com.test.primary_project.repository;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
 import com.test.primary_project.model.Produto;
+import com.test.primary_project.model.exception.ResourceNotFoundException;
 
 @Repository
 public class ProdutoRepository {
@@ -40,7 +40,7 @@ public class ProdutoRepository {
     public Produto atualizar(Produto produto){
         Optional<Produto> prod = obterPorId(produto.getId());
         if(prod.isEmpty()){
-            throw new InputMismatchException();
+            throw new ResourceNotFoundException("Produto não encontrado");
         }
         deletar(produto.getId());
         produtos.add(produto);
