@@ -29,6 +29,7 @@ public class ProdutoService {
             .collect(Collectors.toList());
     }
 
+    @SuppressWarnings("null")
     public Optional<ProdutoDTO> findById(Integer id) {
         Optional<Produto> produto = repository.findById(id);
         
@@ -41,6 +42,7 @@ public class ProdutoService {
         return Optional.of(dto);
     }
 
+    @SuppressWarnings("null")
     public ProdutoDTO saveProduto(ProdutoDTO produtoDto) {
         produtoDto.setId(null);
         
@@ -55,7 +57,9 @@ public class ProdutoService {
         return produtoDto;
     }
 
+    @SuppressWarnings("null")
     public void deleteById(Integer id) {
+        @SuppressWarnings("null")
         Optional<Produto> produto = repository.findById(id);
         
         if(produto.isEmpty()){
@@ -65,6 +69,7 @@ public class ProdutoService {
         repository.deleteById(id);
     }
 
+    @SuppressWarnings("null")
     public ProdutoDTO updateProduto(Integer id, ProdutoDTO produtoDTO) {
         produtoDTO.setId(id);
         
