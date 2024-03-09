@@ -1,8 +1,15 @@
 package com.test.primary_project.model;
 
-public class Produto {
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Entity;
 
+@Entity
+public class Produto {
     // #region Atributos
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     private String nome;
